@@ -3,6 +3,7 @@ title: "Penguins"
 format:
   html:
     toc: false
+    echo: false
     keep-hidden: true
     code-tools: true
 ---
@@ -60,7 +61,7 @@ Inputs.table(filtered)
 ```
 :::
 
-hello world
+
 ```{ojs}
 filtered = transpose(data).filter(function(penguin) {
   return bill_length_min < penguin.bill_length &&
@@ -68,6 +69,8 @@ filtered = transpose(data).filter(function(penguin) {
 })
 ```
 
+
+# example import from observable
 
 ```{ojs}
 import {pieChart, surveyCompareBars, surveyHistograms, longList, bigPercentage, bigPercentageWithDescription} from "d/cf42a44ac2f24b7a"
