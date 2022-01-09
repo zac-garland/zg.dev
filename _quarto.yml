@@ -1,5 +1,6 @@
 project:
-  type: website
+  type: site
+  output-dir: docs
 
 website:
   title: "zg.dev"
@@ -13,9 +14,13 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
     toc: true
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
 
 editor: visual
 
