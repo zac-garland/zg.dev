@@ -216,7 +216,8 @@ leaflet() %>%
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
 
-Source: quarto.org / rstudio / observablehq / jj
+Source: quarto.org / rstudio / observablehq / jj et al
+
 ```{ojs}
 //| panel: input
 viewof bill_length_min = Inputs.range(
