@@ -18,6 +18,9 @@ ojs_define(
 
 ## import from observable D3
 
+
+##### Data Practitioners: data specialists and their collaborators
+
 ```{ojs}
 import {pieChart,longList} from "d/cf42a44ac2f24b7a"
 
@@ -41,6 +44,8 @@ Other	support	6.32	39`, d3.autoType)
 ```{ojs}
 pieChart(roles, "Role", "count", "dataRole", "Responses for data-centered roles")
 ```
+
+## An overwhelming number of tools
 
 ```{ojs}
 
