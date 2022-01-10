@@ -214,7 +214,7 @@ Highcharts.mapChart('container', {
 
 ```
 
-source: https://www.highcharts.com/demo/maps/map-drilldown
+source: <https://www.highcharts.com/demo/maps/map-drilldown>
 
 ## & that looks like R code
 
@@ -266,14 +266,14 @@ hcmap(
   hc_title(text = "Europe Time Zones")
 ```
 
-source: https://jkunst.com/highcharter/articles/maps.html
+source: <https://jkunst.com/highcharter/articles/maps.html>
 
 ## penguins & observable JS
 
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
 
-Source: https://quarto.org/
+Source: <https://quarto.org/>
 
 ```{ojs}
 //| panel: input
