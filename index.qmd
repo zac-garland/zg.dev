@@ -42,6 +42,9 @@ Other	support	6.32	39`, d3.autoType)
 pieChart(roles, "Role", "count", "dataRole", "Responses for data-centered roles")
 ```
 
+
+Source: <https://observablehq.com/@observablehq/state-of-dataviz-2021>
+
 ## that looks like js & html
 
 <div id="container" style="height: 500px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
@@ -202,6 +205,8 @@ Highcharts.mapChart('container', {
 
 ```
 
+source: https://www.highcharts.com/demo/maps/map-drilldown
+
 ## & that looks like R code
 
 ```{r}
@@ -252,7 +257,7 @@ hcmap(
   hc_title(text = "Europe Time Zones")
 ```
 
-
+source: https://jkunst.com/highcharter/articles/maps.html
 
 ## penguins & observable D3
 
