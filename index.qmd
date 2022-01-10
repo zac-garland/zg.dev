@@ -278,7 +278,7 @@ source: <https://jkunst.com/highcharter/articles/maps.html>
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
 
-Source: <https://quarto.org/>
+Source: <https://quarto.org/docs/gallery/>
 
 ```{ojs}
 //| panel: input
