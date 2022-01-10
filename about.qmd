@@ -1,9 +1,9 @@
 ---
-title: "Source: ❤️"
+
 ---
 
 Thank you to all who worked on:
 
 <https://quarto.org/>
 
-# 
+# It's awesome
