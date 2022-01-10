@@ -273,7 +273,7 @@ hcmap(
 
 source: <https://jkunst.com/highcharter/articles/maps.html>
 
-## penguins & observable JS
+## & that looks like observableJS
 
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
