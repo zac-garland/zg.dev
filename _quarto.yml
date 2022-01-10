@@ -6,7 +6,7 @@ website:
   title: "zg.dev"
   navbar:
     type: dark
-    background: secondary
+    background: primary
     left:
       - href: index.qmd
         text: Home
