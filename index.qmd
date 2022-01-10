@@ -16,10 +16,10 @@ ojs_define(
   )
 ```
 
-## example import from observable D3
+## import from observable D3
 
 ```{ojs}
-import {pieChart, surveyCompareBars, surveyHistograms, longList, bigPercentage, bigPercentageWithDescription} from "d/cf42a44ac2f24b7a"
+import {pieChart,longList} from "d/cf42a44ac2f24b7a"
 
 ```
 
@@ -41,6 +41,15 @@ Other	support	6.32	39`, d3.autoType)
 ```{ojs}
 pieChart(roles, "Role", "count", "dataRole", "Responses for data-centered roles")
 ```
+
+```{ojs}
+
+import {ToolsImage} from "@observablehq/state-of-dataviz-2021"
+
+
+ToolsImage
+```
+
 
 
 Source: <https://observablehq.com/@observablehq/state-of-dataviz-2021>
@@ -259,7 +268,7 @@ hcmap(
 
 source: https://jkunst.com/highcharter/articles/maps.html
 
-## penguins & observable D3
+## penguins & observable JS
 
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
