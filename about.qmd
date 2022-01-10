@@ -1,9 +1,11 @@
 ---
-title: "Thank you"
+title: "About"
 ---
 
-Thank you to all who worked on:
+This was my test run of <https://quarto.org/>
 
-<https://quarto.org/>
+I was like: 🤯🤓
 
-# It's awesome
+Thank you to all who worked on the underlying engine. Thank you RStudio.
+
+It's awesome. 
