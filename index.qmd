@@ -113,7 +113,9 @@ source: <https://jkunst.com/highcharter/articles/maps.html>
 
 
 
-## that looks like js & html
+## that looks like js & html 
+
+*CLICK ON A STATE TO DRILLDOWN*
 
 <div id="container" style="height: 500px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
 <script src="https://code.highcharts.com/maps/highmaps.js"></script>
@@ -276,7 +278,7 @@ Highcharts.mapChart('container', {
 source: <https://www.highcharts.com/demo/maps/map-drilldown>
 
 
-## & that looks like observableJS
+## & that looks like observableJS inputs
 
 
 A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
