@@ -4,20 +4,32 @@ project:
 
 website:
   title: "zg.dev"
+  sidebar:
+    style: "floating"
+    search: true
+    contents:
+      - section: "A Quarto Doc"
+        contents:
+          - index.qmd
+          - obs.qmd
+          - py.qmd
+          - js.qmd
+          - rmd.qmd
   navbar:
-    type: dark
+    type: light
     background: primary
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - href: about.qmd
+        text: About
 format:
   html:
     toc: true
     theme:
       light: [flatly, theme.scss]
       dark: [flatly, theme-dark.scss]
+    highlight: tango
     code-copy: true
     code-overflow: wrap
     css: styles.css

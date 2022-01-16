@@ -1,5 +1,5 @@
 ---
-title: "a quarto.doc"
+title: "Quarto"
 format:
   html:
     toc: false
@@ -11,339 +11,144 @@ format:
 ---
 
 ```{r,include = FALSE}
-ojs_define(
-  data = readr::read_csv("https://raw.githubusercontent.com/quarto-dev/quarto-web/8159986c9ea1c956b9340663b2a4f03f3b75c9e2/docs/interactive/ojs/examples/palmer-penguins.csv")
-  )
-```
-
-## import from observable D3
-
-
-##### Data Practitioners: data specialists and their collaborators
-
-```{ojs}
-import {pieChart,longList} from "d/cf42a44ac2f24b7a"
-
-```
-
-```{ojs}
-roles = d3.tsvParse(`Role	dataRole	pct	count
-Hobbyist	support	30.6	174
-Front-end developer	support	14.2	81
-Academic or government researcher	support	14.2	81
-Data analyst or business analyst	primary	9.65	55
-Data scientist	primary	7.37	42
-Data architect	primary	3.3	19
-Student	support	5.61	32
-Educator	support	5.09	29
-Journalist	support	2.98	17
-Other	support	6.32	39`, d3.autoType)
-```
-
-
-```{ojs}
-pieChart(roles, "Role", "count", "dataRole", "Responses for data-centered roles")
-```
-
-## An overwhelming number of tools
-
-```{ojs}
-
-import {ToolsImage} from "@observablehq/state-of-dataviz-2021"
-
-
-ToolsImage
-```
-
-
-
-Source: <https://observablehq.com/@observablehq/state-of-dataviz-2021>
-
-## & that looks like R code
-
-```{r}
 library(tidyverse)
-library(highcharter)
 
-data <- tibble(
-  country = 
-    c("PT", "IE", "GB", "IS",
-      
-      "NO", "SE", "DK", "DE", "NL", "BE", "LU", "ES", "FR", "PL", "CZ", "AT",
-      "CH", "LI", "SK", "HU", "SI", "IT", "SM", "HR", "BA", "YF", "ME", "AL", "MK",
-      
-      "FI", "EE", "LV", "LT", "BY", "UA", "MD", "RO", "BG", "GR", "TR", "CY",
-      
-      "RU"),  
-  tz = c(rep("UTC", 4), rep("UTC + 1",25), rep("UCT + 2",12), "UTC + 3")
+tool_pref <- c(
+  "R", "python", "bash","sql", "julia",
+  "js", "node","coffee", "sass", "ojs",
+  "c","fortran","Rcpp","go","perl"
+)
+
+categories <- c("Analytics","Business","Collaboration","Communication","Data","Design","Developer","Other")
+
+tool_dat <- names(knitr::knit_engines$get()) %>%
+  tibble(tool = .) %>%
+  mutate(category = sample(categories, nrow(.), replace = TRUE)) %>% 
+  select(category,tool) %>% 
+  arrange(match(tool,c(tool_pref,base::setdiff(names(knitr::knit_engines$get()),tool_pref))))
+
+ojs_define(
+  tools = tool_dat
   )
-
-# auxiliar variable
-data <- data %>% 
-  mutate(value = cumsum(!duplicated(tz)))
-
-
-# now we'll create the dataClasses
-dta_clss <- data %>% 
-  mutate(value = cumsum(!duplicated(tz))) %>% 
-  group_by(tz) %>% 
-  summarise(value = unique(value)) %>% 
-  arrange(value) %>% 
-  rename(name = tz, from = value) %>% 
-  mutate(to = from + 1) %>% 
-  list_parse()
-
-hcmap(
-  map = "custom/europe",
-  data = data, 
-  joinBy = c("iso-a2","country"),
-  name = "Time zone",
-  value = "value",
-  tooltip = list(pointFormat = "{point.name} {point.tz}"),
-  dataLabels = list(enabled = TRUE, format = "{point.country}")
-  ) %>%
-  hc_colorAxis(
-    dataClassColor = "category",
-    dataClasses = dta_clss
-    ) %>% 
-  hc_title(text = "Europe Time Zones")
 ```
 
-source: <https://jkunst.com/highcharter/articles/maps.html>
 
 
 
-## that looks like js & html 
+## Based on Rmarkdown & language agnostic
 
-*CLICK ON A STATE TO DRILLDOWN*
+```{ojs}
 
-<div id="container" style="height: 500px; min-width: 310px; max-width: 800px; margin: 0 auto"></div>
-<script src="https://code.highcharts.com/maps/highmaps.js"></script>
-<script src="https://code.highcharts.com/maps/modules/data.js"></script>
-<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
-<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-<script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
-
-<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-
-```{js}
-/*
-TODO:
-- Check data labels after drilling. Label rank? New positions?
-*/
-
-data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
-const separators = Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline');
-
-// Set drilldown pointers
-data.forEach((d, i) => {
-  d.drilldown = d.properties['hc-key'];
-  d.value = i; // Non-random bogus data
-});
-
-function getScript(url, cb) {
-  const script = document.createElement('script');
-  script.src = url;
-  script.onload = cb;
-  document.head.appendChild(script);
+longList = function(tools, description) {
+  const categories = [...new Set(tools.map(tool => tool.category))].map(id => ({id, label: id}))
+  return html`
+  <div>
+  <style>
+    .tools-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 30px 0 20px 0;
+    }
+    .tools-container .sidebar {
+      width: 110px;
+      flex: 1 0 auto;
+    }
+    @media only screen and (min-width: 600px) {
+      .tools-container .sidebar {
+        width: 160px;
+      }
+    }
+    .tools-container .big-number {
+      line-height: 1.5em;
+    }
+    .tools-container .big-number b {
+      display: block;
+      font-size: 48px;
+      line-height: 48px;
+      margin-bottom: 4px;
+    }
+    .tools-container .color-key {
+      border-top: solid 1px rgba(0, 0, 0, 0.08);
+      margin-top: 20px;
+      padding-top: 20px;
+      width: 100%
+    }
+    .tools-container .color {
+      color: #666;
+      display: flex;
+      gap: 8px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+    }
+    .tools-container .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+    .tools-container .tools {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .tools-container .tool {
+      border-radius: 4px;
+      padding: 2px 4px;
+      font-size: 1.7em
+    }
+    .tools-container .category-Analytics {
+      background-color: MistyRose;
+    }
+    .tools-container .category-Business {
+      background-color: SeaShell;
+    }
+    .tools-container .category-Collaboration {
+      background-color: PapayaWhip;
+    }
+    .tools-container .category-Communication {
+      background-color: Beige;
+    }
+    .tools-container .category-Data {
+      background-color: hsl(157deg 47% 93%);
+    }
+    .tools-container .category-Design {
+      background-color: AliceBlue;
+    }
+    .tools-container .category-Developer {
+      background-color: Lavender;
+    }
+    .tools-container .category-Other {
+      background-color: WhiteSmoke;
+    }
+  </style>
+  <div class="tools-container">
+    <div class="sidebar">
+      <div class="big-number"><b>${tools.length}</b> ${description}</div>
+      <div class="color-key">
+        <div>
+          ${categories.sort((a, b) => d3.ascending(a.label, b.label)).map(category => html`<div class="color">
+            <div class="swatch category-${category.id}"></div> ${category.label}
+          </div>`)}
+          </div>
+      </div>
+    </div>
+    <div class="tools">
+    ${tools.sort().map(tool => html`<span class="tool category-${tool.category}">${tool.tool}</span>`)}
+    </div>
+</div>
+  `
 }
 
-// Instantiate the map
-Highcharts.mapChart('container', {
-  chart: {
-    events: {
-      drilldown: function (e) {
-        if (!e.seriesOptions) {
-          const chart = this,
-            mapKey = 'countries/us/' + e.point.drilldown + '-all';
 
-          // Handle error, the timeout is cleared on success
-          let fail = setTimeout(() => {
-            if (!Highcharts.maps[mapKey]) {
-              chart.showLoading('<i class="icon-frown"></i> Failed loading ' + e.point.name);
-              fail = setTimeout(() => {
-                chart.hideLoading();
-              }, 1000);
-            }
-          }, 3000);
 
-          // Show the spinner
-          chart.showLoading('<i class="icon-spinner icon-spin icon-3x"></i>'); // Font Awesome spinner
 
-          // Load the drilldown map
-          getScript('https://code.highcharts.com/mapdata/' + mapKey + '.js', () => {
-            data = Highcharts.geojson(Highcharts.maps[mapKey]);
+longList(transpose(tools), "languages / engines supported in Rmarkdown")
 
-            // Set a non-random bogus value
-            data.forEach((d, i) => {
-              d.value = i;
-            });
-
-            // Hide loading and add series
-            chart.hideLoading();
-            clearTimeout(fail);
-            chart.addSeriesAsDrilldown(e.point, {
-              name: e.point.name,
-              data: data,
-              dataLabels: {
-                enabled: true,
-                format: '{point.name}'
-              }
-            });
-          });
-        }
-
-        this.setTitle(null, { text: e.point.name });
-      },
-      drillup: function () {
-        this.setTitle(null, { text: '' });
-      }
-    }
-  },
-
-  title: {
-    text: 'Highcharts Map Drilldown'
-  },
-
-  subtitle: {
-    text: '',
-    floating: true,
-    align: 'right',
-    y: 50,
-    style: {
-      fontSize: '16px'
-    }
-  },
-
-  colorAxis: {
-    min: 0,
-    minColor: '#E6E7E8',
-    maxColor: '#005645'
-  },
-
-  mapNavigation: {
-    enabled: true,
-    buttonOptions: {
-      verticalAlign: 'bottom'
-    }
-  },
-
-  plotOptions: {
-    map: {
-      states: {
-        hover: {
-          color: '#EEDD66'
-        }
-      }
-    }
-  },
-
-  series: [{
-    data: data,
-    name: 'USA',
-    dataLabels: {
-      enabled: true,
-      format: '{point.properties.postal-code}'
-    }
-  }, {
-    type: 'mapline',
-    data: separators,
-    color: 'silver',
-    enableMouseTracking: false,
-    animation: {
-      duration: 500
-    }
-  }],
-
-  drilldown: {
-    activeDataLabelStyle: {
-      color: '#FFFFFF',
-      textDecoration: 'none',
-      textOutline: '1px #000000'
-    },
-    drillUpButton: {
-      relativeTo: 'spacingBox',
-      position: {
-        x: 0,
-        y: 60
-      }
-    }
-  }
-});
 
 ```
 
-source: <https://www.highcharts.com/demo/maps/map-drilldown>
 
-
-## & that looks like observableJS inputs
-
-
-A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. 
-
-Source: <https://quarto.org/docs/gallery/>
-
-```{ojs}
-//| panel: input
-viewof bill_length_min = Inputs.range(
-  [32, 50], 
-  {value: 35, step: 1, label: "Bill length (min):"}
-)
-viewof islands = Inputs.checkbox(
-  ["Torgersen", "Biscoe", "Dream"], 
-  { value: ["Torgersen", "Biscoe"], 
-    label: "Islands:"
-  }
-)
-```
-
-::: panel-tabset
-
-
-
-
-
-## Plot
-
-```{ojs}
-Plot.rectY(filtered, 
-  Plot.binX(
-    {y: "count"}, 
-    {x: "body_mass", fill: "species", thresholds: 20}
-  ))
-  .plot({
-    facet: {
-      data: filtered,
-      x: "sex",
-      y: "species",
-      marginRight: 80
-    },
-    marks: [
-      Plot.frame(),
-    ]
-  }
-)
-```
-
-## Data
-
-```{ojs}
-Inputs.table(filtered)
-```
-
-
-
-:::
-
-
-```{ojs}
-filtered = transpose(data).filter(function(penguin) {
-  return bill_length_min < penguin.bill_length &&
-         islands.includes(penguin.island);
-})
-```
 
 
 

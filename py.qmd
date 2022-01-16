@@ -1,0 +1,34 @@
+---
+title: "python widgets"
+toc: false
+---
+
+
+```{python}
+from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles
+m = Map(
+  basemap=basemap_to_tiles(
+    basemaps.USGS.USImageryTopo, "2020-09-31"
+  ),
+  center=(39.712950, -105.406600),
+  zoom=15
+)
+m.add_layer(Marker(location=(39.712950, -105.406600)))
+m
+```
+
+
+
+```{python}
+import plotly.express as px
+df = px.data.iris()
+fig = px.scatter(df, x="sepal_width", y="sepal_length", 
+                 color="species", 
+                 marginal_y="violin", marginal_x="box", template="plotly_dark")
+fig.show()
+```
+
+
+
+
+

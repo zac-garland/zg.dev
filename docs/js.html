@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.3.12">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>zg.dev - About</title>
+  <title>zg.dev - Javascript</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">About</h1>
+      <h1 class="quarto-secondary-nav-title">Javascript</h1>
       <button type="button" class="quarto-btn-toggle btn">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -108,7 +108,7 @@
       <div class="collapse  show" id="quarto-sidebar-section-a-quarto-doc">
         <ul class="list-unstyled sidebar-item-contents">
           <li class="sidebar-item">
-  <a href="./index.html" class="">rmarkdown</a>
+  <a href="./index.html" class="">About Quarto</a>
 </li>
           <li class="sidebar-item">
   <a href="./obs.html" class="">Observable D3</a>
@@ -130,12 +130,166 @@
 <!-- main -->
 <main class="content">
 <header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">About</h1>
+<h1 class="title d-none d-lg-block display-7">Javascript</h1>
 </header>
-<p>This was my test run of <a href="https://quarto.org/" class="uri">https://quarto.org/</a></p>
-<p>I was like: 🤯🤓</p>
-<p>Thank you to all who worked on the underlying engine. Thank you RStudio.</p>
-<p>It’s awesome.</p>
+<p><em>CLICK ON A STATE TO DRILLDOWN</em></p>
+<div id="container" style="height: 500px; min-width: 310px; max-width: 800px; margin: 0 auto">
+
+</div>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+<p><link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"></p>
+<pre class="{js}"><code>/*
+TODO:
+- Check data labels after drilling. Label rank? New positions?
+*/
+
+
+
+data = Highcharts.geojson(Highcharts.maps['countries/us/us-all']);
+const separators = Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline');
+
+// Set drilldown pointers
+data.forEach((d, i) =&gt; {
+  d.drilldown = d.properties['hc-key'];
+  d.value = i; // Non-random bogus data
+});
+
+function getScript(url, cb) {
+  const script = document.createElement('script');
+  script.src = url;
+  script.onload = cb;
+  document.head.appendChild(script);
+}
+
+// Instantiate the map
+Highcharts.mapChart('container', {
+  chart: {
+    events: {
+      drilldown: function (e) {
+        if (!e.seriesOptions) {
+          const chart = this,
+            mapKey = 'countries/us/' + e.point.drilldown + '-all';
+
+          // Handle error, the timeout is cleared on success
+          let fail = setTimeout(() =&gt; {
+            if (!Highcharts.maps[mapKey]) {
+              chart.showLoading('&lt;i class="icon-frown"&gt;&lt;/i&gt; Failed loading ' + e.point.name);
+              fail = setTimeout(() =&gt; {
+                chart.hideLoading();
+              }, 1000);
+            }
+          }, 3000);
+
+          // Show the spinner
+          chart.showLoading('&lt;i class="icon-spinner icon-spin icon-3x"&gt;&lt;/i&gt;'); // Font Awesome spinner
+
+          // Load the drilldown map
+          getScript('https://code.highcharts.com/mapdata/' + mapKey + '.js', () =&gt; {
+            data = Highcharts.geojson(Highcharts.maps[mapKey]);
+
+            // Set a non-random bogus value
+            data.forEach((d, i) =&gt; {
+              d.value = i;
+            });
+
+            // Hide loading and add series
+            chart.hideLoading();
+            clearTimeout(fail);
+            chart.addSeriesAsDrilldown(e.point, {
+              name: e.point.name,
+              data: data,
+              dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+              }
+            });
+          });
+        }
+
+        this.setTitle(null, { text: e.point.name });
+      },
+      drillup: function () {
+        this.setTitle(null, { text: '' });
+      }
+    }
+  },
+
+  title: {
+    text: 'Highcharts Map Drilldown'
+  },
+
+  subtitle: {
+    text: '',
+    floating: true,
+    align: 'right',
+    y: 50,
+    style: {
+      fontSize: '16px'
+    }
+  },
+
+  colorAxis: {
+    min: 0,
+    minColor: '#E6E7E8',
+    maxColor: '#005645'
+  },
+
+  mapNavigation: {
+    enabled: true,
+    buttonOptions: {
+      verticalAlign: 'bottom'
+    }
+  },
+
+  plotOptions: {
+    map: {
+      states: {
+        hover: {
+          color: '#EEDD66'
+        }
+      }
+    }
+  },
+
+  series: [{
+    data: data,
+    name: 'USA',
+    dataLabels: {
+      enabled: true,
+      format: '{point.properties.postal-code}'
+    }
+  }, {
+    type: 'mapline',
+    data: separators,
+    color: 'silver',
+    enableMouseTracking: false,
+    animation: {
+      duration: 500
+    }
+  }],
+
+  drilldown: {
+    activeDataLabelStyle: {
+      color: '#FFFFFF',
+      textDecoration: 'none',
+      textOutline: '1px #000000'
+    },
+    drillUpButton: {
+      relativeTo: 'spacingBox',
+      position: {
+        x: 0,
+        y: 60
+      }
+    }
+  }
+});
+</code></pre>
+<p>source: <a href="https://www.highcharts.com/demo/maps/map-drilldown" class="uri">https://www.highcharts.com/demo/maps/map-drilldown</a></p>
 
 
 </main> <!-- /main -->
