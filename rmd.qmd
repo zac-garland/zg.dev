@@ -1,5 +1,13 @@
 ---
 title: "Rmarkdown"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
 ---
 
 
@@ -15,10 +23,16 @@ data <- tibble(
   country =
     c(
       "PT", "IE", "GB", "IS",
-      "NO", "SE", "DK", "DE", "NL", "BE", "LU", "ES", "FR", "PL", "CZ", "AT",
-      "CH", "LI", "SK", "HU", "SI", "IT", "SM", "HR", "BA", "YF", "ME", "AL", "MK",
-      "FI", "EE", "LV", "LT", "BY", "UA", "MD", "RO", "BG", "GR", "TR", "CY",
-      "RU"
+      "NO", "SE", "DK", "DE", 
+      "NL", "BE", "LU", "ES", 
+      "FR", "PL", "CZ", "AT",
+      "CH", "LI", "SK", "HU", 
+      "SI", "IT", "SM", "HR", 
+      "BA", "YF", "ME", "AL", 
+      "MK", "FI", "EE", "LV", 
+      "LT", "BY", "UA", "MD", 
+      "RO", "BG", "GR", "TR", 
+      "CY","RU"
     ),
   tz = c(rep("UTC", 4), rep("UTC + 1", 25), rep("UCT + 2", 12), "UTC + 3")
 )

@@ -95,7 +95,8 @@ longList = function(tools, description) {
     .tools-container .tool {
       border-radius: 4px;
       padding: 2px 4px;
-      font-size: 1.7em
+      font-size: 1.7em;
+      color: #000000;
     }
     .tools-container .category-Analytics {
       background-color: MistyRose;
@@ -125,13 +126,6 @@ longList = function(tools, description) {
   <div class="tools-container">
     <div class="sidebar">
       <div class="big-number"><b>${tools.length}</b> ${description}</div>
-      <div class="color-key">
-        <div>
-          ${categories.sort((a, b) => d3.ascending(a.label, b.label)).map(category => html`<div class="color">
-            <div class="swatch category-${category.id}"></div> ${category.label}
-          </div>`)}
-          </div>
-      </div>
     </div>
     <div class="tools">
     ${tools.sort().map(tool => html`<span class="tool category-${tool.category}">${tool.tool}</span>`)}

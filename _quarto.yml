@@ -15,6 +15,7 @@ website:
           - py.qmd
           - js.qmd
           - rmd.qmd
+          - shiny.qmd
   navbar:
     type: light
     background: primary

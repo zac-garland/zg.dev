@@ -116,7 +116,7 @@
   <script type="module" src="site_libs/quarto-ojs/esbuild-bundle.js"></script>
   <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
   <script type="ojs-define">
-  {"contents":[{"name":"tools","value":{"category":["Design","Data","Communication","Developer","Business","Communication","Analytics","Other","Other","Communication","Developer","Other","Business","Analytics","Business","Communication","Developer","Business","Design","Business","Analytics","Data","Data","Developer","Data","Analytics","Data","Other","Data","Analytics","Data","Other","Business","Other","Design","Design","Other","Data","Business","Design","Analytics","Business","Other","Business","Communication","Business","Analytics","Data","Data","Other","Developer","Business"],"tool":["R","python","bash","sql","julia","js","node","coffee","sass","ojs","c","fortran","Rcpp","go","perl","awk","gawk","groovy","haskell","lein","mysql","octave","psql","Rscript","ruby","sas","scala","sed","sh","stata","zsh","asis","asy","block","block2","bslib","cat","cc","comment","css","dot","embed","fortran95","highlight","scss","stan","targets","tikz","verbatim","glue","glue_sql","gluesql"]}}]}
+  {"contents":[{"name":"tools","value":{"category":["Other","Developer","Analytics","Data","Collaboration","Developer","Data","Developer","Developer","Data","Developer","Other","Communication","Data","Communication","Collaboration","Developer","Analytics","Other","Business","Collaboration","Other","Communication","Data","Analytics","Communication","Business","Communication","Design","Design","Business","Other","Developer","Analytics","Data","Developer","Other","Collaboration","Design","Analytics","Collaboration","Analytics","Collaboration","Communication","Analytics","Business","Communication","Other","Other","Analytics","Developer","Data"],"tool":["R","python","bash","sql","julia","js","node","coffee","sass","ojs","c","fortran","Rcpp","go","perl","awk","gawk","groovy","haskell","lein","mysql","octave","psql","Rscript","ruby","sas","scala","sed","sh","stata","zsh","asis","asy","block","block2","bslib","cat","cc","comment","css","dot","embed","fortran95","highlight","scss","stan","targets","tikz","verbatim","glue","glue_sql","gluesql"]}}]}
   </script>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -182,13 +182,16 @@
   <a href="./obs.html" class="">Observable D3</a>
 </li>
           <li class="sidebar-item">
-  <a href="./py.html" class="">python widgets</a>
+  <a href="./py.html" class="">Python</a>
 </li>
           <li class="sidebar-item">
-  <a href="./js.html" class="">Javascript</a>
+  <a href="./js.html" class="">JS</a>
 </li>
           <li class="sidebar-item">
   <a href="./rmd.html" class="">Rmarkdown</a>
+</li>
+          <li class="sidebar-item">
+  <a href="./shiny.html" class="">Shiny</a>
 </li>
         </ul>
       </div>
@@ -296,55 +299,49 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .tool {</span></span>
 <span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="vs">      border-radius: 4px;</span></span>
 <span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="vs">      padding: 2px 4px;</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="vs">      font-size: 1.7em</span></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Analytics {</span></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: MistyRose;</span></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Business {</span></span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: SeaShell;</span></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Collaboration {</span></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: PapayaWhip;</span></span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Communication {</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: Beige;</span></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Data {</span></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: hsl(157deg 47% 93%);</span></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Design {</span></span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: AliceBlue;</span></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Developer {</span></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: Lavender;</span></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Other {</span></span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: WhiteSmoke;</span></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/style&gt;</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div class="tools-container"&gt;</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="sidebar"&gt;</span></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="big-number"&gt;&lt;b&gt;</span><span class="sc">${</span>tools<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/b&gt; </span><span class="sc">${</span>description<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="color-key"&gt;</span></span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;div&gt;</span></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="vs">          </span><span class="sc">${</span>categories<span class="op">.</span><span class="fu">sort</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> d3<span class="op">.</span><span class="fu">ascending</span>(a<span class="op">.</span><span class="at">label</span><span class="op">,</span> b<span class="op">.</span><span class="at">label</span>))<span class="op">.</span><span class="fu">map</span>(category <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;div class="color"&gt;</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="vs">            &lt;div class="swatch category-</span><span class="sc">${</span>category<span class="op">.</span><span class="at">id</span><span class="sc">}</span><span class="vs">"&gt;&lt;/div&gt; </span><span class="sc">${</span>category<span class="op">.</span><span class="at">label</span><span class="sc">}</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;`</span>)<span class="sc">}</span></span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="vs">          &lt;/div&gt;</span></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="tools"&gt;</span></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>tools<span class="op">.</span><span class="fu">sort</span>()<span class="op">.</span><span class="fu">map</span>(tool <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;span class="tool category-</span><span class="sc">${</span>tool<span class="op">.</span><span class="at">category</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>tool<span class="op">.</span><span class="at">tool</span><span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="sc">}</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="fu">longList</span>(<span class="fu">transpose</span>(tools)<span class="op">,</span> <span class="st">"languages / engines supported in Rmarkdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="vs">      font-size: 1.7em;</span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="vs">      color: #000000;</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Analytics {</span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: MistyRose;</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Business {</span></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: SeaShell;</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Collaboration {</span></span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: PapayaWhip;</span></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Communication {</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: Beige;</span></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Data {</span></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: hsl(157deg 47% 93%);</span></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Design {</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: AliceBlue;</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Developer {</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: Lavender;</span></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="vs">    .tools-container .category-Other {</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="vs">      background-color: WhiteSmoke;</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/style&gt;</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;div class="tools-container"&gt;</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="sidebar"&gt;</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div class="big-number"&gt;&lt;b&gt;</span><span class="sc">${</span>tools<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/b&gt; </span><span class="sc">${</span>description<span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="tools"&gt;</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span>tools<span class="op">.</span><span class="fu">sort</span>()<span class="op">.</span><span class="fu">map</span>(tool <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;span class="tool category-</span><span class="sc">${</span>tool<span class="op">.</span><span class="at">category</span><span class="sc">}</span><span class="vs">"&gt;</span><span class="sc">${</span>tool<span class="op">.</span><span class="at">tool</span><span class="sc">}</span><span class="vs">&lt;/span&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="vs">  `</span></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="fu">longList</span>(<span class="fu">transpose</span>(tools)<span class="op">,</span> <span class="st">"languages / engines supported in Rmarkdown"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -460,68 +457,62 @@ x dplyr::lag()    masks stats::lag()</code></pre>
 <span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .tool {</span></span>
 <span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">      border-radius: 4px;</span></span>
 <span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="in">      padding: 2px 4px;</span></span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="in">      font-size: 1.7em</span></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Analytics {</span></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: MistyRose;</span></span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Business {</span></span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: SeaShell;</span></span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Collaboration {</span></span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: PapayaWhip;</span></span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Communication {</span></span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: Beige;</span></span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Data {</span></span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: hsl(157deg 47% 93%);</span></span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Design {</span></span>
-<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: AliceBlue;</span></span>
-<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Developer {</span></span>
-<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: Lavender;</span></span>
-<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Other {</span></span>
-<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: WhiteSmoke;</span></span>
-<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
-<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/style&gt;</span></span>
-<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="tools-container"&gt;</span></span>
-<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="sidebar"&gt;</span></span>
-<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="big-number"&gt;&lt;b&gt;${tools.length}&lt;/b&gt; ${description}&lt;/div&gt;</span></span>
-<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="color-key"&gt;</span></span>
-<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="in">        &lt;div&gt;</span></span>
-<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="in">          ${categories.sort((a, b) =&gt; d3.ascending(a.label, b.label)).map(category =&gt; html`&lt;div class="color"&gt;</span></span>
-<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="in">            &lt;div class="swatch category-${category.id}"&gt;&lt;/div&gt; ${category.label}</span></span>
-<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;/div&gt;`)}</span></span>
-<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="in">          &lt;/div&gt;</span></span>
-<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;/div&gt;</span></span>
-<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
-<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="tools"&gt;</span></span>
-<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a><span class="in">    ${tools.sort().map(tool =&gt; html`&lt;span class="tool category-${tool.category}"&gt;${tool.tool}&lt;/span&gt;`)}</span></span>
-<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
-<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
-<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="in">  `</span></span>
-<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="in">      font-size: 1.7em;</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="in">      color: #000000;</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Analytics {</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: MistyRose;</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Business {</span></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: SeaShell;</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Collaboration {</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: PapayaWhip;</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Communication {</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: Beige;</span></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Data {</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: hsl(157deg 47% 93%);</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Design {</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: AliceBlue;</span></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Developer {</span></span>
+<span id="cb7-121"><a href="#cb7-121" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: Lavender;</span></span>
+<span id="cb7-122"><a href="#cb7-122" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-123"><a href="#cb7-123" aria-hidden="true" tabindex="-1"></a><span class="in">    .tools-container .category-Other {</span></span>
+<span id="cb7-124"><a href="#cb7-124" aria-hidden="true" tabindex="-1"></a><span class="in">      background-color: WhiteSmoke;</span></span>
+<span id="cb7-125"><a href="#cb7-125" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb7-126"><a href="#cb7-126" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;/style&gt;</span></span>
+<span id="cb7-127"><a href="#cb7-127" aria-hidden="true" tabindex="-1"></a><span class="in">  &lt;div class="tools-container"&gt;</span></span>
+<span id="cb7-128"><a href="#cb7-128" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="sidebar"&gt;</span></span>
+<span id="cb7-129"><a href="#cb7-129" aria-hidden="true" tabindex="-1"></a><span class="in">      &lt;div class="big-number"&gt;&lt;b&gt;${tools.length}&lt;/b&gt; ${description}&lt;/div&gt;</span></span>
+<span id="cb7-130"><a href="#cb7-130" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb7-131"><a href="#cb7-131" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;div class="tools"&gt;</span></span>
+<span id="cb7-132"><a href="#cb7-132" aria-hidden="true" tabindex="-1"></a><span class="in">    ${tools.sort().map(tool =&gt; html`&lt;span class="tool category-${tool.category}"&gt;${tool.tool}&lt;/span&gt;`)}</span></span>
+<span id="cb7-133"><a href="#cb7-133" aria-hidden="true" tabindex="-1"></a><span class="in">    &lt;/div&gt;</span></span>
+<span id="cb7-134"><a href="#cb7-134" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/div&gt;</span></span>
+<span id="cb7-135"><a href="#cb7-135" aria-hidden="true" tabindex="-1"></a><span class="in">  `</span></span>
+<span id="cb7-136"><a href="#cb7-136" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb7-137"><a href="#cb7-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-138"><a href="#cb7-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-139"><a href="#cb7-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-140"><a href="#cb7-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-141"><a href="#cb7-141" aria-hidden="true" tabindex="-1"></a><span class="in">longList(transpose(tools), "languages / engines supported in Rmarkdown")</span></span>
+<span id="cb7-142"><a href="#cb7-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-143"><a href="#cb7-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-144"><a href="#cb7-144" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-145"><a href="#cb7-145" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-146"><a href="#cb7-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a><span class="in">longList(transpose(tools), "languages / engines supported in Rmarkdown")</span></span>
+<span id="cb7-147"><a href="#cb7-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-148"><a href="#cb7-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-149"><a href="#cb7-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-150"><a href="#cb7-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-151"><a href="#cb7-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-152"><a href="#cb7-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-153"><a href="#cb7-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-154"><a href="#cb7-154" aria-hidden="true" tabindex="-1"></a></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </section>
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\nlongList = function(tools, description) {\n  const categories = [...new Set(tools.map(tool => tool.category))].map(id => ({id, label: id}))\n  return html`\n  <div>\n  <style>\n    .tools-container {\n      display: flex;\n      align-items: flex-start;\n      gap: 20px;\n      padding: 30px 0 20px 0;\n    }\n    .tools-container .sidebar {\n      width: 110px;\n      flex: 1 0 auto;\n    }\n    @media only screen and (min-width: 600px) {\n      .tools-container .sidebar {\n        width: 160px;\n      }\n    }\n    .tools-container .big-number {\n      line-height: 1.5em;\n    }\n    .tools-container .big-number b {\n      display: block;\n      font-size: 48px;\n      line-height: 48px;\n      margin-bottom: 4px;\n    }\n    .tools-container .color-key {\n      border-top: solid 1px rgba(0, 0, 0, 0.08);\n      margin-top: 20px;\n      padding-top: 20px;\n      width: 100%\n    }\n    .tools-container .color {\n      color: #666;\n      display: flex;\n      gap: 8px;\n      margin-top: 2px;\n      display: flex;\n      align-items: center;\n    }\n    .tools-container .swatch {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n    }\n    .tools-container .tools {\n      display: flex;\n      gap: 4px;\n      flex-wrap: wrap;\n    }\n    .tools-container .tool {\n      border-radius: 4px;\n      padding: 2px 4px;\n      font-size: 1.7em\n    }\n    .tools-container .category-Analytics {\n      background-color: MistyRose;\n    }\n    .tools-container .category-Business {\n      background-color: SeaShell;\n    }\n    .tools-container .category-Collaboration {\n      background-color: PapayaWhip;\n    }\n    .tools-container .category-Communication {\n      background-color: Beige;\n    }\n    .tools-container .category-Data {\n      background-color: hsl(157deg 47% 93%);\n    }\n    .tools-container .category-Design {\n      background-color: AliceBlue;\n    }\n    .tools-container .category-Developer {\n      background-color: Lavender;\n    }\n    .tools-container .category-Other {\n      background-color: WhiteSmoke;\n    }\n  </style>\n  <div class=\"tools-container\">\n    <div class=\"sidebar\">\n      <div class=\"big-number\"><b>${tools.length}</b> ${description}</div>\n      <div class=\"color-key\">\n        <div>\n          ${categories.sort((a, b) => d3.ascending(a.label, b.label)).map(category => html`<div class=\"color\">\n            <div class=\"swatch category-${category.id}\"></div> ${category.label}\n          </div>`)}\n          </div>\n      </div>\n    </div>\n    <div class=\"tools\">\n    ${tools.sort().map(tool => html`<span class=\"tool category-${tool.category}\">${tool.tool}</span>`)}\n    </div>\n</div>\n  `\n}\n\n\n\n\nlongList(transpose(tools), \"languages / engines supported in Rmarkdown\")"}]}
+{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"\nlongList = function(tools, description) {\n  const categories = [...new Set(tools.map(tool => tool.category))].map(id => ({id, label: id}))\n  return html`\n  <div>\n  <style>\n    .tools-container {\n      display: flex;\n      align-items: flex-start;\n      gap: 20px;\n      padding: 30px 0 20px 0;\n    }\n    .tools-container .sidebar {\n      width: 110px;\n      flex: 1 0 auto;\n    }\n    @media only screen and (min-width: 600px) {\n      .tools-container .sidebar {\n        width: 160px;\n      }\n    }\n    .tools-container .big-number {\n      line-height: 1.5em;\n    }\n    .tools-container .big-number b {\n      display: block;\n      font-size: 48px;\n      line-height: 48px;\n      margin-bottom: 4px;\n    }\n    .tools-container .color-key {\n      border-top: solid 1px rgba(0, 0, 0, 0.08);\n      margin-top: 20px;\n      padding-top: 20px;\n      width: 100%\n    }\n    .tools-container .color {\n      color: #666;\n      display: flex;\n      gap: 8px;\n      margin-top: 2px;\n      display: flex;\n      align-items: center;\n    }\n    .tools-container .swatch {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n    }\n    .tools-container .tools {\n      display: flex;\n      gap: 4px;\n      flex-wrap: wrap;\n    }\n    .tools-container .tool {\n      border-radius: 4px;\n      padding: 2px 4px;\n      font-size: 1.7em;\n      color: #000000;\n    }\n    .tools-container .category-Analytics {\n      background-color: MistyRose;\n    }\n    .tools-container .category-Business {\n      background-color: SeaShell;\n    }\n    .tools-container .category-Collaboration {\n      background-color: PapayaWhip;\n    }\n    .tools-container .category-Communication {\n      background-color: Beige;\n    }\n    .tools-container .category-Data {\n      background-color: hsl(157deg 47% 93%);\n    }\n    .tools-container .category-Design {\n      background-color: AliceBlue;\n    }\n    .tools-container .category-Developer {\n      background-color: Lavender;\n    }\n    .tools-container .category-Other {\n      background-color: WhiteSmoke;\n    }\n  </style>\n  <div class=\"tools-container\">\n    <div class=\"sidebar\">\n      <div class=\"big-number\"><b>${tools.length}</b> ${description}</div>\n    </div>\n    <div class=\"tools\">\n    ${tools.sort().map(tool => html`<span class=\"tool category-${tool.category}\">${tool.tool}</span>`)}\n    </div>\n</div>\n  `\n}\n\n\n\n\nlongList(transpose(tools), \"languages / engines supported in Rmarkdown\")"}]}
 </script>
 <script type="module">
 window._ojs.paths.runtimeToDoc = "../..";

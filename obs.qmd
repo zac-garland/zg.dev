@@ -1,5 +1,13 @@
 ---
 title: "Observable D3"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
 ---
 
 

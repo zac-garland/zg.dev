@@ -1,7 +1,23 @@
 ---
-title: "Javascript"
+title: "JS"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
 ---
 
+```{r}
+ojs_define(
+  hello_world = "hello world"
+)
+```
+
+
+# javascript
 
 *CLICK ON A STATE TO DRILLDOWN*
 
@@ -13,7 +29,6 @@ title: "Javascript"
 <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
 <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
 
-<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
 
 ```{js}

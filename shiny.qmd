@@ -1,0 +1,17 @@
+---
+title: "Shiny"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
+---
+
+```{=html}
+ <iframe id="example1" src="https://zac-garland.shinyapps.io/world-dev-indicators/" style="border: none; width: 100%; height: 720px" frameborder="0"></iframe>
+```
+
+

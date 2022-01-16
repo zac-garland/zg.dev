@@ -1,8 +1,14 @@
 ---
-title: "python widgets"
-toc: false
+title: "Python"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
 ---
-
 
 ```{python}
 from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles
