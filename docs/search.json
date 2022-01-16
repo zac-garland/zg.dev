@@ -25,7 +25,7 @@
     "href": "shiny.html",
     "title": "Shiny",
     "section": "",
-    "text": "Source Code\n---\ntitle: \"Shiny\"\nformat:\n  html:\n    toc: false\n    echo: false\n    message: false\n    warning: false\n    keep-hidden: true\n    code-tools: true\n---\n\n```{=html}\n <iframe id=\"example1\" src=\"https://zac-garland.shinyapps.io/world-dev-indicators/\" style=\"border: none; width: 100%; height: 720px\" frameborder=\"0\"></iframe>\n```"
+    "text": "shiny::HTML('\n<iframe id=\"example1\" src=\"https://zac-garland.shinyapps.io/world-dev-indicators/\" style=\"border: none; width: 100%; height: 720px\" frameborder=\"0\"></iframe>\n')\n\n\n\n\n\n\n\n\n\nSource Code\n---\ntitle: \"Shiny\"\nformat:\n  html:\n    toc: false\n    echo: false\n    message: false\n    warning: false\n    keep-hidden: true\n    code-tools: true\n---\n\n```{r}\n#| column: screen\nshiny::HTML('\n<iframe id=\"example1\" src=\"https://zac-garland.shinyapps.io/world-dev-indicators/\" style=\"border: none; width: 100%; height: 720px\" frameborder=\"0\"></iframe>\n')\n\n\n```"
   },
   {
     "objectID": "index.html#based-on-rmarkdown-language-agnostic",
