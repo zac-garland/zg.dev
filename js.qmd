@@ -58,6 +58,7 @@ function getScript(url, cb) {
 // Instantiate the map
 Highcharts.mapChart('container', {
   chart: {
+    backgroundColor: "transparent",
     events: {
       drilldown: function (e) {
         if (!e.seriesOptions) {
