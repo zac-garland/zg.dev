@@ -11,6 +11,14 @@ format:
 ---
 
 
+```{css}
+.tools-container .tool {
+  color: #000000;
+}
+
+```
+
+
 ## Data Practitioners: data specialists and their collaborators
 
 ```{ojs}

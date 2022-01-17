@@ -33,6 +33,89 @@ ojs_define(
 ```
 
 
+```{css}
+.tools-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px 0 20px 0;
+}
+.tools-container .sidebar {
+  width: 110px;
+  flex: 1 0 auto;
+}
+@media only screen and (min-width: 600px) {
+  .tools-container .sidebar {
+    width: 160px;
+  }
+}
+.tools-container .big-number {
+  line-height: 1.5em;
+}
+.tools-container .big-number b {
+  display: block;
+  font-size: 48px;
+  line-height: 48px;
+  margin-bottom: 4px;
+}
+.tools-container .color-key {
+  border-top: solid 1px rgba(0, 0, 0, 0.08);
+  margin-top: 20px;
+  padding-top: 20px;
+  width: 100%
+}
+.tools-container .color {
+  color: #666;
+  display: flex;
+  gap: 8px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+}
+.tools-container .swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+}
+.tools-container .tools {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tools-container .tool {
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 1.7em;
+  color: #000000;
+}
+.tools-container .category-Analytics {
+  background-color: MistyRose;
+}
+.tools-container .category-Business {
+  background-color: SeaShell;
+}
+.tools-container .category-Collaboration {
+  background-color: PapayaWhip;
+}
+.tools-container .category-Communication {
+  background-color: Beige;
+}
+.tools-container .category-Data {
+  background-color: hsl(157deg 47% 93%);
+}
+.tools-container .category-Design {
+  background-color: AliceBlue;
+}
+.tools-container .category-Developer {
+  background-color: Lavender;
+}
+.tools-container .category-Other {
+  background-color: WhiteSmoke;
+}
+
+```
+
+
 
 
 ## Based on Rmarkdown & language agnostic
@@ -43,86 +126,6 @@ longList = function(tools, description) {
   const categories = [...new Set(tools.map(tool => tool.category))].map(id => ({id, label: id}))
   return html`
   <div>
-  <style>
-    .tools-container {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 30px 0 20px 0;
-    }
-    .tools-container .sidebar {
-      width: 110px;
-      flex: 1 0 auto;
-    }
-    @media only screen and (min-width: 600px) {
-      .tools-container .sidebar {
-        width: 160px;
-      }
-    }
-    .tools-container .big-number {
-      line-height: 1.5em;
-    }
-    .tools-container .big-number b {
-      display: block;
-      font-size: 48px;
-      line-height: 48px;
-      margin-bottom: 4px;
-    }
-    .tools-container .color-key {
-      border-top: solid 1px rgba(0, 0, 0, 0.08);
-      margin-top: 20px;
-      padding-top: 20px;
-      width: 100%
-    }
-    .tools-container .color {
-      color: #666;
-      display: flex;
-      gap: 8px;
-      margin-top: 2px;
-      display: flex;
-      align-items: center;
-    }
-    .tools-container .swatch {
-      width: 12px;
-      height: 12px;
-      border-radius: 4px;
-    }
-    .tools-container .tools {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
-    .tools-container .tool {
-      border-radius: 4px;
-      padding: 2px 4px;
-      font-size: 1.7em;
-      color: #000000;
-    }
-    .tools-container .category-Analytics {
-      background-color: MistyRose;
-    }
-    .tools-container .category-Business {
-      background-color: SeaShell;
-    }
-    .tools-container .category-Collaboration {
-      background-color: PapayaWhip;
-    }
-    .tools-container .category-Communication {
-      background-color: Beige;
-    }
-    .tools-container .category-Data {
-      background-color: hsl(157deg 47% 93%);
-    }
-    .tools-container .category-Design {
-      background-color: AliceBlue;
-    }
-    .tools-container .category-Developer {
-      background-color: Lavender;
-    }
-    .tools-container .category-Other {
-      background-color: WhiteSmoke;
-    }
-  </style>
   <div class="tools-container">
     <div class="sidebar">
       <div class="big-number"><b>${tools.length}</b> ${description}</div>
