@@ -24,6 +24,9 @@ svg {
   color: #000000
 }
 
+.legend > * {
+    color: var(--bs-body-color) !important;
+}
 ```
 
 
