@@ -13,7 +13,15 @@ format:
 
 ```{css}
 .tools-container .tool {
-  color: #000000;
+  color: #000000 !important;
+}
+
+.response > * {
+    color: var(--bs-body-color) !important;
+}
+
+svg {
+  color: #000000
 }
 
 ```
