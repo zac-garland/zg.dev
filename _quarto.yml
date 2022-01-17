@@ -12,9 +12,9 @@ website:
         contents:
           - index.qmd
           - obs.qmd
-          - py.qmd
           - js.qmd
           - rmd.qmd
+          - py.qmd
           - shiny.qmd
   navbar:
     type: light
