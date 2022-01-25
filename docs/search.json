@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "py.html",
-    "href": "py.html",
-    "title": "Python",
+    "objectID": "ojs-shiny.html",
+    "href": "ojs-shiny.html",
+    "title": "ojs + shiny => ❤️",
     "section": "",
-    "text": "from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles\nm = Map(\n  basemap=basemap_to_tiles(\n    basemaps.USGS.USImageryTopo, \"2020-09-31\"\n  ),\n  center=(39.712950, -105.406600),\n  zoom=15\n)\nm.add_layer(Marker(location=(39.712950, -105.406600)))\nm\n\n\n\n\n\nimport plotly.express as px\ndf = px.data.iris()\nfig = px.scatter(df, x=\"sepal_width\", y=\"sepal_length\", \n                 color=\"species\", \n                 marginal_y=\"violin\", marginal_x=\"box\", template=\"plotly_dark\")\nfig.show()\n\n                                                \n\n\n\n\n\nSource Code\n---\ntitle: \"Python\"\nformat:\n  html:\n    toc: false\n    echo: false\n    message: false\n    warning: false\n    keep-hidden: true\n    code-tools: true\n---\n\n```{python}\nfrom ipyleaflet import Map, Marker, basemaps, basemap_to_tiles\nm = Map(\n  basemap=basemap_to_tiles(\n    basemaps.USGS.USImageryTopo, \"2020-09-31\"\n  ),\n  center=(39.712950, -105.406600),\n  zoom=15\n)\nm.add_layer(Marker(location=(39.712950, -105.406600)))\nm\n```\n\n\n\n```{python}\nimport plotly.express as px\ndf = px.data.iris()\nfig = px.scatter(df, x=\"sepal_width\", y=\"sepal_length\", \n                 color=\"species\", \n                 marginal_y=\"violin\", marginal_x=\"box\", template=\"plotly_dark\")\nfig.show()\n```"
+    "text": "shiny::HTML('\n<iframe id=\"example1\" src=\"https://zac-garland.shinyapps.io/ojs-shiny\" style=\"border: none; width: 100%; height: 1200px;\" frameborder=\"0\"></iframe>\n')\n\n\n\n\n\n\n\n\n\nSource Code\n---\ntitle: \"ojs + shiny => ❤️\"\nformat:\n  html:\n    toc: false\n    echo: false\n    message: false\n    warning: false\n    keep-hidden: true\n    code-tools: true\n---\n\n```{r}\n#| column: screen\nshiny::HTML('\n<iframe id=\"example1\" src=\"https://zac-garland.shinyapps.io/ojs-shiny\" style=\"border: none; width: 100%; height: 1200px;\" frameborder=\"0\"></iframe>\n')\n\n\n```"
   },
   {
     "objectID": "rmd.html#section",
@@ -40,6 +40,13 @@
     "title": "About",
     "section": "",
     "text": "This was my test run of https://quarto.org/\nI was like: 🤯🤓\nThank you to all who worked on the underlying engine. Thank you RStudio.\nIt’s awesome."
+  },
+  {
+    "objectID": "product-dev.html",
+    "href": "product-dev.html",
+    "title": "product-dev",
+    "section": "",
+    "text": "Number of bins:\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \nContents\n\n\n\n\n\nⅠ Product Design\n\n\n\n\n\n\n\n1. Building vs. Scaling\n2. Solving the Right Problem\n3. Hypothesis Testing\n4. Minimum Lovable Products\n\n\n\n\n\n\n\n\n\nⅡ Economics\n\n\n\n\n\n\n5. Businses Models\n6. Market Entry\n7. Moats\n8. Unit Economics\n9. Customer Economics\n10. Segmentation\n11. Market Failures\n\n\n\n\n\n\n\n\n\n\nⅢ Psychology\n\n\n\n\n\n\n12. Pricing Psycology\n13. Motivation\n14. Getting the Click\n15. Stickiness\n\n\n\n\n\n\n\n\n\nⅣ User Experience\n\n\n\n\n\n\n16. Cognition\n17. UX Principles\n18. Usability\n19. Customer vs. Business\n\n\n\n\n\n\n\n\n\nⅤ Data Science\n\n\n\n\n\n\n20. Distributions of Data\n21. Experiments\n22. Metrics\n23. Metric Models\n24. Storytelling with Data\n\n\n\n\n\n\n\n\n\nⅥ Law and Policy\n\n\n\n\n\n\n25. Antitrust\n26. Intellectual Property\n27. Platform Liability\n28. Privacy\n29. Employment in the Gig Economy\n30. Accessibility\n\n\n\n\n\n\n\n\n\nⅦ Marketing & Growth\n\n\n\n\n\n\n31. Branding\n32. What Are You Hunting?\n33. Advertising\n34. Growth Hacking\n35. Persuasion"
   },
   {
     "objectID": "obs.html#data-practitioners-data-specialists-and-their-collaborators",

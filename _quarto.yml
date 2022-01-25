@@ -11,10 +11,10 @@ website:
       - section: "A Quarto Doc"
         contents:
           - index.qmd
+          - ojs-shiny.qmd
           - obs.qmd
           - js.qmd
           - rmd.qmd
-          - py.qmd
           - shiny.qmd
   navbar:
     type: light

@@ -1,0 +1,25 @@
+---
+title: "ojs + shiny => ❤️"
+format:
+  html:
+    toc: false
+    echo: false
+    message: false
+    warning: false
+    keep-hidden: true
+    code-tools: true
+---
+
+```{r}
+#| column: screen
+shiny::HTML('
+<iframe id="example1" src="https://zac-garland.shinyapps.io/ojs-shiny" style="border: none; width: 100%; height: 1200px;" frameborder="0"></iframe>
+')
+
+
+```
+
+
+
+
+
